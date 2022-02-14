@@ -8,9 +8,13 @@ tentativas = 3
 rodada = 1 
 
 
-while(rodada<=tentativas):
-    print("Tentativa: ", rodada,"de", tentativas)
-    chute =  int( input("Digite o seu número: "))
+for rodada in range (1,tentativas+1):
+    print("Tentativa: {} de {}".format(rodada,tentativas))
+    chute =  int( input("Digite um número entre 1 e 100: "))
+    if(chute < 1 or  chute>100 ):
+        print("Você deve digitar um número entre 1 e 100")
+        continue
+    
     print("você digitou o número : ", chute)
 
     acertou = numero_secreto == chute
@@ -19,11 +23,10 @@ while(rodada<=tentativas):
 
     if (acertou):
         print("você acertou!")
-        rodada = rodada +10
+        break
     else:
         if(maior):
             print("Você errou!! O seu chute foi maior que o numero secreto.")
         elif(menor):
             print("Você errou!! O seu chute foi menor que o numero secreto.") 
-        rodada = rodada + 1 
 print("Fim de jogo")
